@@ -34,7 +34,7 @@ class BankAccountTest {
         assertFalse(BankAccount.isEmailValid("gb@@mail.com")); // more than one '@'
         assertFalse(BankAccount.isEmailValid(".hello@mail.com")); // starts with a special character
         assertFalse(BankAccount.isEmailValid("user@domain..com")); // consecutive dots in domain
-        assertFalse(BankAccount.isEmailValid("user@domain,com")); // invalid character in domain
+        assertFalse(BankAccount.isEmailValid("user@domain,com")); // invalid chapracter in domain
         assertFalse(BankAccount.isEmailValid("user@domain.com ")); // ending space
         assertFalse(BankAccount.isEmailValid(" user@domain.com")); // starting space 
         assertFalse(BankAccount.isEmailValid("ab@mail.c"));
