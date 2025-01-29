@@ -1,5 +1,8 @@
 package edu.ithaca.dturnbull.bank;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class BankAccount {
 
     private String email;
@@ -40,11 +43,12 @@ public class BankAccount {
 
 
     public static boolean isEmailValid(String email){
-        if (email.indexOf('@') == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        //alphanumeric, period, underscore, percent, plus, hyphen username
+        //@ Sign
+        //alphanumeric, period, hyphen domain
+        //period and then domain suffix of 1-3 letters
+        Pattern emailPattern = Pattern.compile("^^[a-zA-Z0-9_%+\\-]+(?:\\.[a-zA-Z0-9_%+\\-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z-]{2,3}$");
+        Matcher emailMatcher = emailPattern.matcher(email);
+        return (emailMatcher.find());
     }
 }
